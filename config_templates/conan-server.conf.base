@@ -1,0 +1,23 @@
+[server]
+jwt_secret: (JWT_SECRET)
+jwt_expire_minutes: 120
+
+updown_secret: (UPDOWN_SECRET)
+authorize_timeout: (AUTHORIZE_TIMEOUT)
+
+port: (PORT)
+
+store_adapter: disk
+
+# Just for disk storage adapter
+disk_storage_path: (STORAGE_PATH)
+
+[write_permissions]
+# By default all users can write all blocks
+*/*@*/*: *
+
+[read_permissions]
+# By default all users can read all blocks
+*/*@*/*: *
+
+[users]

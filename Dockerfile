@@ -26,10 +26,9 @@ RUN apt update && \
 
 EXPOSE 9300
 
-WORKDIR /opt/conan
+COPY ["bin", "/usr/local/bin/"]
+COPY ["config_templates", "/opt/conan/"]
+COPY ["docker-entrypoint.sh", "/usr/local/bin/"]
 
-CMD ["gunicorn", \
-     "-b", "0.0.0.0:9300", \
-     "-w", "4", \
-     "-t", "300", \
-     "conans.server.server_launcher:app"]
+WORKDIR "/opt/conan"
+ENTRYPOINT ["docker-entrypoint.sh"]
